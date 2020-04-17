@@ -5,12 +5,29 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
 
 import "./styles/main.scss";
+import CustomCssBaseline from "./components/GlobalStyles/GlobalStyles";
 import App from "./components/App/App";
 
-let theme = createMuiTheme();
+let theme = createMuiTheme({
+  palette: {
+    background: {},
+  },
+  typography: {
+    fontFamily: [
+      "Raleway",
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      "Helvetica",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+    ].join(","),
+  },
+});
 theme = responsiveFontSizes(theme);
 
 // Freecodecamp Test Script
@@ -18,7 +35,7 @@ localStorage.setItem("project_selector", "pomodoro-clock");
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <CssBaseline />
+    <CustomCssBaseline />
     <App />
   </ThemeProvider>,
   document.getElementById("root")

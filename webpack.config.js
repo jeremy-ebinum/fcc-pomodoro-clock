@@ -87,7 +87,7 @@ const config = (env, argv) => {
       hotOnly: false,
       transportMode: "ws",
       injectHot: true,
-      open: true,
+      open: "Firefox",
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods":
