@@ -11,6 +11,7 @@ const config = (env, argv) => {
   const isProdMode = mode === "production";
 
   return {
+    mode,
     entry: ["./src/index.js"],
     output: {
       path: path.resolve(__dirname, "build"),
@@ -53,6 +54,18 @@ const config = (env, argv) => {
         {
           test: /\.(eot|svg|ttf|woff2?|otf)$/,
           use: "file-loader",
+        },
+        {
+          test: /\.(mp3|wav|vtt)$/,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                name: "[name].[ext]",
+                outputPath: "assets/",
+              },
+            },
+          ],
         },
       ],
     },

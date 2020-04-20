@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const TimerControls = () => {
+const TimerControls = React.forwardRef((props, beepRef) => {
   const [{ isRunning }, dispatch] = useStateValue();
   const classes = useStyles();
 
@@ -30,8 +30,13 @@ const TimerControls = () => {
   }, [isRunning, dispatch]);
 
   const reset = useCallback(() => {
+    if (beepRef.current) {
+      beepRef.current.pause();
+      // eslint-disable-next-line no-param-reassign
+      beepRef.current.currentTime = 0;
+    }
     dispatch(resetState());
-  }, [dispatch]);
+  }, [beepRef, dispatch]);
 
   return (
     <CardActions className={classes.timerControls}>
@@ -47,6 +52,6 @@ const TimerControls = () => {
       </IconButton>
     </CardActions>
   );
-};
+});
 
 export default TimerControls;
