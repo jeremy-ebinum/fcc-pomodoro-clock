@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import grey from "@material-ui/core/colors/grey";
 import Box from "@material-ui/core/Box";
@@ -9,12 +9,28 @@ import Button from "@material-ui/core/Button";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 
+import { useStateValue, incrementSession, decrementSession } from "../state";
+
 const useStyles = makeStyles(() => ({
   sessionLength: { "&:disabled": { color: grey[900] } },
 }));
 
 const SessionControls = () => {
+  const [{ sessionLength, isRunning }, dispatch] = useStateValue();
   const classes = useStyles();
+
+  const increaseSessionLength = useCallback(() => {
+    if (sessionLength < 60) {
+      dispatch(incrementSession());
+    }
+  }, [sessionLength, dispatch]);
+
+  const decreaseSessionLength = useCallback(() => {
+    if (sessionLength > 1) {
+      dispatch(decrementSession());
+    }
+  }, [sessionLength, dispatch]);
+
   return (
     <Grid
       container
@@ -32,17 +48,25 @@ const SessionControls = () => {
         </Box>
       </Typography>
       <ButtonGroup variant="contained" color="primary" size="small">
-        <Button id="session-decrement">
+        <Button
+          id="session-decrement"
+          onClick={decreaseSessionLength}
+          disabled={isRunning}
+        >
           <RemoveIcon />
         </Button>
 
         <Button className={classes.sessionLength} variant="text" disabled>
           <Box id="session-length" fontWeight="bold">
-            25
+            {sessionLength}
           </Box>
         </Button>
 
-        <Button id="session-increment">
+        <Button
+          id="session-increment"
+          onClick={increaseSessionLength}
+          disabled={isRunning}
+        >
           <AddIcon />
         </Button>
       </ButtonGroup>

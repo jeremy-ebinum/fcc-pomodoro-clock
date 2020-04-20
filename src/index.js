@@ -8,6 +8,7 @@ import {
 
 import "./styles/main.scss";
 import CustomCssBaseline from "./components/GlobalStyles";
+import { reducer, StateProvider } from "./state";
 import App from "./components/App";
 
 let theme = createMuiTheme({
@@ -36,7 +37,9 @@ localStorage.setItem("project_selector", "pomodoro-clock");
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <CustomCssBaseline />
-    <App />
+    <StateProvider reducer={reducer}>
+      <App />
+    </StateProvider>
   </ThemeProvider>,
   document.getElementById("root")
 );
