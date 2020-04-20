@@ -5,7 +5,9 @@ export const initialState = {
   isBreakTime: false,
   isRunning: false,
   breakLength: 5,
+  breakTimeLeft: 300,
   sessionLength: 25,
+  sessionTimeLeft: 1500,
 };
 
 export const StateContext = createContext(initialState);

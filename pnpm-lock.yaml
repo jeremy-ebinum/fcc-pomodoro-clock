@@ -5,6 +5,7 @@ dependencies:
   prop-types: 15.7.2
   react: 16.13.1
   react-dom: 16.13.1_react@16.13.1
+  react-interval: 2.1.1_react@16.13.1
   regenerator-runtime: 0.13.5
   remove-files-webpack-plugin: 1.4.0_webpack@4.42.1
 devDependencies:
@@ -6013,6 +6014,16 @@ packages:
       react: ^16.13.1
     resolution:
       integrity: sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
+  /react-interval/2.1.1_react@16.13.1:
+    dependencies:
+      prop-types: 15.7.2
+      react: 16.13.1
+    dev: false
+    peerDependencies:
+      '@types/react': ^15.0.0 || ^16.0.0
+      react: ^15.3.0 || ^16.0.0
+    resolution:
+      integrity: sha512-ElqbAlARY9mkcCPxdwbn5deX1Dx6oKEbIWy4Voubbf6+8oVLPdXHxX5fEALkGerIom0T+WBYzdumjrSkgPlEzA==
   /react-is/16.13.1:
     resolution:
       integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -7808,6 +7819,7 @@ specifiers:
   prop-types: ^15.7.2
   react: ^16.13.1
   react-dom: ^16.13.1
+  react-interval: ^2.1.1
   regenerator-runtime: ^0.13.5
   remove-files-webpack-plugin: ^1.4.0
   sass-loader: ^8.0.2
