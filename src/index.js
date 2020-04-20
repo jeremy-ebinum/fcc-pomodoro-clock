@@ -7,8 +7,8 @@ import {
 } from "@material-ui/core/styles";
 
 import "./styles/main.scss";
-import CustomCssBaseline from "./components/GlobalStyles/GlobalStyles";
-import App from "./components/App/App";
+import CustomCssBaseline from "./components/GlobalStyles";
+import App from "./components/App";
 
 let theme = createMuiTheme({
   palette: {
