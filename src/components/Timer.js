@@ -17,12 +17,16 @@ import {
 } from "../state";
 import TimerLabel from "./TimerLabel";
 import TimerClock from "./TimerClock";
+import TimerProgress from "./TimerProgress";
 import TimerControls from "./TimerControls";
 
 const useStyles = makeStyles((theme) => ({
   timer: {
+    position: "relative",
     borderRadius: "47%",
     padding: theme.spacing(2),
+    background: "transparent",
+    overflow: "hidden",
   },
   timerContent: { padding: theme.spacing(5) },
 }));
@@ -80,6 +84,7 @@ const Timer = () => {
         callback={updateTimer}
       />
       <Card className={classes.timer} variant="outlined">
+        <TimerProgress />
         <CardContent className={classes.timerContent}>
           <TimerLabel />
 
