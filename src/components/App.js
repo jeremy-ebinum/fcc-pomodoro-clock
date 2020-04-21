@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
-import Header from "./Header";
+import NavBar from "./NavBar";
 import DarkModeSwitch from "./DarkModeSwitch";
 import BreakControls from "./BreakControls";
 import SessionControls from "./SessionControls";
@@ -20,38 +20,40 @@ const App = () => {
   const classes = useStyles();
 
   return (
-    <Grid
-      className={classes.wrapper}
-      container
-      direction="column"
-      justify="center"
-      alignContent="center"
-      alignItems="center"
-      spacing={3}
-    >
-      <Header />
-
-      <Grid container spacing={1} justify="center" item>
-        <BreakControls />
-
-        <SessionControls />
-      </Grid>
+    <>
+      <NavBar />
 
       <Grid
+        className={classes.wrapper}
         container
         direction="column"
         justify="center"
+        alignContent="center"
         alignItems="center"
-        item
-        xs={12}
+        spacing={3}
       >
-        <Timer />
-      </Grid>
+        <Grid container spacing={1} justify="center" item>
+          <BreakControls />
 
-      <Grid item>
-        <DarkModeSwitch />
+          <SessionControls />
+        </Grid>
+
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          item
+          xs={12}
+        >
+          <Timer />
+        </Grid>
+
+        <Grid item>
+          <DarkModeSwitch />
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 
