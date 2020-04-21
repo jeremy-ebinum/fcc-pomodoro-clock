@@ -20,11 +20,17 @@ const getFormatedTime = (secondsLeft) => {
 };
 
 const TimerClock = () => {
-  const [{ isBreakTime, breakTimeLeft, sessionTimeLeft }] = useStateValue();
+  const [
+    { isBreakTime, isRunning, breakTimeLeft, sessionTimeLeft },
+  ] = useStateValue();
 
   return (
     <Typography variant="h2" component="span" align="center">
-      <Box id="time-left" fontWeight="bold">
+      <Box
+        id="time-left"
+        fontWeight="bold"
+        color={isRunning ? "secondary.main" : "text.primary"}
+      >
         {isBreakTime
           ? getFormatedTime(breakTimeLeft)
           : getFormatedTime(sessionTimeLeft)}

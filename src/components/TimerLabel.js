@@ -9,7 +9,10 @@ const TimerLabel = () => {
 
   return (
     <Typography variant="h4" component="span" align="center">
-      <Box id="timer-label" color="text.secondary">
+      <Box
+        id="timer-label"
+        color={isBreakTime ? "success.main" : "text.secondary"}
+      >
         {isBreakTime ? "Break" : "Session"}
       </Box>
     </Typography>

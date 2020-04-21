@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
 import Header from "./Header";
+import DarkModeSwitch from "./DarkModeSwitch";
 import BreakControls from "./BreakControls";
 import SessionControls from "./SessionControls";
 import Timer from "./Timer";
@@ -45,6 +46,10 @@ const App = () => {
         xs={12}
       >
         <Timer />
+      </Grid>
+
+      <Grid item>
+        <DarkModeSwitch />
       </Grid>
     </Grid>
   );

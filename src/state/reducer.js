@@ -55,7 +55,10 @@ export const reducer = (state, action) => {
       return { ...state, isRunning: action.payload };
 
     case "RESET_STATE":
-      return initialState;
+      return { ...initialState, darkMode: state.darkMode };
+
+    case "SET_DARK_MODE":
+      return { ...state, darkMode: action.payload };
 
     default:
       return state;
@@ -112,4 +115,12 @@ export const setIsRunning = (payload) => {
 
 export const resetState = () => {
   return { type: "RESET_STATE" };
+};
+
+/**
+ *
+ * @param {boolean} payload
+ */
+export const setDarkMode = (payload) => {
+  return { type: "SET_DARK_MODE", payload };
 };

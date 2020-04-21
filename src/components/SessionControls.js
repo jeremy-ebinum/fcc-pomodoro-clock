@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import grey from "@material-ui/core/colors/grey";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -11,8 +10,8 @@ import RemoveIcon from "@material-ui/icons/Remove";
 
 import { useStateValue, incrementSession, decrementSession } from "../state";
 
-const useStyles = makeStyles(() => ({
-  sessionLength: { "&:disabled": { color: grey[900] } },
+const useStyles = makeStyles((theme) => ({
+  sessionLength: { "&:disabled": { color: theme.palette.text.primary } },
 }));
 
 const SessionControls = () => {
@@ -43,7 +42,7 @@ const SessionControls = () => {
       md={2}
     >
       <Typography variant="button" align="center">
-        <Box id="session-label" fontWeight="bold">
+        <Box id="session-label" fontWeight={500}>
           Session Length
         </Box>
       </Typography>
