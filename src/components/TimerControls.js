@@ -40,14 +40,18 @@ const TimerControls = React.forwardRef((props, beepRef) => {
 
   return (
     <CardActions className={classes.timerControls}>
-      <IconButton id="start_stop" onClick={toggleStart} aria-label="start/stop">
+      <IconButton
+        id="start_stop"
+        onClick={toggleStart}
+        aria-label="start or pause timer"
+      >
         {isRunning ? (
           <PauseCircleFilledIcon color="action" fontSize="large" />
         ) : (
           <PlayCircleFilledIcon color="action" fontSize="large" />
         )}
       </IconButton>
-      <IconButton id="reset" onClick={reset} aria-label="reset">
+      <IconButton id="reset" onClick={reset} aria-label="reset timer">
         <RotateLeftIcon color="error" fontSize="large" />
       </IconButton>
     </CardActions>

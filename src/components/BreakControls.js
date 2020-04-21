@@ -46,17 +46,27 @@ const BreakControls = () => {
           Break Length
         </Box>
       </Typography>
-      <ButtonGroup variant="contained" color="primary" size="small">
+      <ButtonGroup
+        variant="contained"
+        color="primary"
+        size="small"
+        aria-label="Break Length Controls"
+      >
         <Button
           id="break-decrement"
           onClick={decreaseBreakLength}
           disabled={isRunning}
         >
-          <RemoveIcon />
+          <RemoveIcon aria-label="reduce break length" />
         </Button>
 
         <Button className={classes.breakLength} variant="text" disabled>
-          <Box id="break-length" fontWeight="bold" disabled={isRunning}>
+          <Box
+            id="break-length"
+            fontWeight="bold"
+            disabled={isRunning}
+            aria-label="current break length"
+          >
             {breakLength}
           </Box>
         </Button>
@@ -66,7 +76,7 @@ const BreakControls = () => {
           onClick={increaseBreakLength}
           disabled={isRunning}
         >
-          <AddIcon />
+          <AddIcon aria-label="increase break length" />
         </Button>
       </ButtonGroup>
     </Grid>

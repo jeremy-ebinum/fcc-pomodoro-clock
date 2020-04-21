@@ -46,17 +46,26 @@ const SessionControls = () => {
           Session Length
         </Box>
       </Typography>
-      <ButtonGroup variant="contained" color="primary" size="small">
+      <ButtonGroup
+        variant="contained"
+        color="primary"
+        size="small"
+        aria-label="control work session length"
+      >
         <Button
           id="session-decrement"
           onClick={decreaseSessionLength}
           disabled={isRunning}
         >
-          <RemoveIcon />
+          <RemoveIcon aria-label="reduce session length" />
         </Button>
 
         <Button className={classes.sessionLength} variant="text" disabled>
-          <Box id="session-length" fontWeight="bold">
+          <Box
+            id="session-length"
+            fontWeight="bold"
+            aria-label="current session length"
+          >
             {sessionLength}
           </Box>
         </Button>
@@ -66,7 +75,7 @@ const SessionControls = () => {
           onClick={increaseSessionLength}
           disabled={isRunning}
         >
-          <AddIcon />
+          <AddIcon aria-label="increase session length" />
         </Button>
       </ButtonGroup>
     </Grid>

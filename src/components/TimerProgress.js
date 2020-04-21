@@ -47,7 +47,15 @@ const TimerProgress = () => {
   getProgressHeight();
 
   return (
-    <div style={{ height: getProgressHeight() }} className={classes.root} />
+    // eslint-disable-next-line jsx-a11y/control-has-associated-label
+    <div
+      role="progressbar"
+      aria-valuenow={parseInt(getProgressHeight(), 10)}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      style={{ height: getProgressHeight() }}
+      className={classes.root}
+    />
   );
 };
 
